@@ -1,7 +1,8 @@
 import { Card } from "@mui/material";
 import styled from "styled-components";
 
-export const StyledPlayerCard = styled(Card)`
+export const StyledPlayerCard = styled(Card)<{ color?: string }>`
+    background-color: ${({ color }) => color || '#fff'} !important;
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;

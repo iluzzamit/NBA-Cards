@@ -6,7 +6,7 @@ import Favorite from '@mui/icons-material/Favorite';
 import { Player } from "../../common/types/Player";
 import React from 'react';
 
-export function PlayerCard({ player }: { player: Player }) {
+export function PlayerCard({ player, color }: { player: Player, color?: string }) {
     const { ids, setIds } = React.useContext(FavoriteCardsContext);
 
     const toggleFavorite = () => {
@@ -21,7 +21,7 @@ export function PlayerCard({ player }: { player: Player }) {
     }
 
     return (
-        <StyledPlayerCard>
+        <StyledPlayerCard color={color}>
             <div className='player-details'>
                 <Avatar>{player.position}</Avatar>
                 <Typography className='player-name' variant='body2'>{player.first_name} {player.last_name}</Typography>

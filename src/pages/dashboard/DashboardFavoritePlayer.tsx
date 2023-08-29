@@ -1,10 +1,9 @@
 import { PlayerCard } from "../../components/player-card/PlayerCard";
-import { Player } from "../../common/types/Player";
 import { useQuery } from "@tanstack/react-query";
 import { CircularProgress } from "@mui/material";
 
 
-export function DashboardAllPlayer({ id }: { id: number }) {
+export function DashboardFavoritePlayer({ id, color }: { id: number, color: string }) {
 
     const { data, isLoading } = useQuery({
         queryKey: ['player', id],
@@ -16,5 +15,5 @@ export function DashboardAllPlayer({ id }: { id: number }) {
 
     if (isLoading) return <CircularProgress />
 
-    return <PlayerCard player={data} />
+    return <PlayerCard player={data} color={color} />
 }
