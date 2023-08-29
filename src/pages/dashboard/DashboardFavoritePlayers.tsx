@@ -7,7 +7,7 @@ import ColorizeIcon from '@mui/icons-material/Colorize';
 import { HexColorPicker } from "react-colorful";
 import React from "react";
 
-const DEFAULT_COLOR = '#c9f6c0'
+const DEFAULT_COLOR = '#96ccff'
 
 export function DashboardFavoritePlayers() {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
