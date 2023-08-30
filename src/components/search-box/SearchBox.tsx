@@ -1,8 +1,7 @@
+import { EnumQueryParams } from "../../common/enums/EnumQueryParams";
 import { StyledSearchBox } from "./SearchBox.style";
 import { useSearchParams } from "react-router-dom";
 import { TextField } from "@mui/material";
-
-export const QUERY_PARAM_SEARCH = 'search'
 
 export function SearchBox() {
     const [query, setQuery] = useSearchParams();
@@ -11,9 +10,9 @@ export function SearchBox() {
         const value = event.target.value;
 
         if (!value || value === '') {
-            query.delete(QUERY_PARAM_SEARCH);
+            query.delete(EnumQueryParams.SEARCH);
         } else {
-            query.set(QUERY_PARAM_SEARCH, event.target.value);
+            query.set(EnumQueryParams.SEARCH, event.target.value);
         }
         setQuery(query)
     }
@@ -24,7 +23,7 @@ export function SearchBox() {
                 label="Search"
                 color="secondary"
                 className='search-box'
-                value={query.get(QUERY_PARAM_SEARCH) || ''}
+                value={query.get(EnumQueryParams.SEARCH) || ''}
                 onChange={onChange}
             />
         </StyledSearchBox>
