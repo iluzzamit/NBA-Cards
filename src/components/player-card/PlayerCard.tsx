@@ -8,7 +8,7 @@ import React from 'react';
 
 export function PlayerCard({ player, color }: { player: Player, color?: string }) {
     const { ids, setIds } = React.useContext(FavoriteCardsContext);
-
+    
     const toggleFavorite = () => {
         if (!ids) return;
 
@@ -23,8 +23,11 @@ export function PlayerCard({ player, color }: { player: Player, color?: string }
     return (
         <StyledPlayerCard color={color}>
             <div className='player-details'>
-                <Avatar>{player.position}</Avatar>
+                <Avatar>{`${player.first_name[0]}${player.last_name[0]}`}</Avatar>
+                <div>
                 <Typography className='player-name' variant='body2'>{player.first_name} {player.last_name}</Typography>
+                {<Typography className='player-name' variant='body2'>Position: {player.position || 'none'}</Typography>}
+                </div>
             </div>
             <IconButton onClick={toggleFavorite}>
                     {ids?.has(player.id) ? <Favorite color='primary' /> : <FavoriteBorderIcon />}
